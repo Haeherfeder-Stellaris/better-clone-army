@@ -1,0 +1,138 @@
+better_clone_army_building_clone_army_room = {
+#	icon = building_ancient_relics
+	base_buildtime = 90
+	position_priority = 100
+
+	category = pop_assembly
+	base_cap_amount = 1
+	can_be_disabled = no
+
+	potential = {
+		exists = owner
+		owner = {
+			has_origin = origin_clone_army
+			NOT = {
+				has_country_flag = clone_army_fertility_unlocked
+			}
+			has_technology = better_clone_army_tech_clone_room
+		}
+		if = {
+			limit = {
+				owner = { is_ai = yes }
+			}
+			AND = {
+				exists = assembling_species
+				assembling_species = { is_robotic_species = yes }
+				always = no # TODO add better logic, because of no pop assambly it may be an useless building
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				OR = {
+					NOT = { has_origin = origin_clone_army }
+					is_synthetic_empire = yes
+					has_country_flag = clone_army_fertility_unlocked
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = @b2_upkeep
+		}
+	}
+	planet_modifier = {
+#		planet_entertainer_consumer_goods_upkeep_add = 0.1
+	}
+
+	upgrades = {
+		better_clone_army_building_clone_army_hall
+	}
+
+	prerequisites = {
+	}
+
+	triggered_desc = {
+#		text = better_clone_army_building_army_clone_room_effect_desc
+	}
+
+	is_essential = yes
+	ai_estimate_without_unemployment = yes
+}
+
+better_clone_army_building_clone_army_hall = {
+#	icon = building_ancient_relics
+	base_buildtime = 90
+	position_priority = 100
+
+	category = pop_assembly
+	can_be_disabled = no
+	can_build = no
+
+	potential = {
+		exists = owner
+		owner = {
+			has_origin = origin_clone_army
+			NOT = {
+				has_country_flag = clone_army_fertility_unlocked
+			}
+			has_technology = better_clone_army_tech_clone_hall
+		}
+		if = {
+			limit = {
+				owner = { is_ai = yes }
+			}
+			AND = {
+				exists = assembling_species
+				assembling_species = { is_robotic_species = yes }
+				always = no # TODO add better logic, because of no pop assambly it may be an useless building
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				OR = {
+					NOT = { has_origin = origin_clone_army }
+					is_synthetic_empire = yes
+					has_country_flag = clone_army_fertility_unlocked
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = @b3_upkeep
+		}
+	}
+
+	upgrades = {
+	}
+
+	prerequisites = {
+	}
+
+	triggered_desc = {
+#		text = better_clone_army_building_army_clone_room_effect_desc
+	}
+
+	is_essential = yes
+	ai_estimate_without_unemployment = yes
+}
+

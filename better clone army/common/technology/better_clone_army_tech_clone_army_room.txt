@@ -1,0 +1,69 @@
+#Cloning
+better_clone_army_tech_clone_room = {
+	cost = @tier2cost2
+	area = society
+	tier = 2
+	category = { biology }
+	prerequisites = { "tech_genome_mapping" }
+	weight = @tier2weight2
+
+	potential = {
+		has_origin = origin_clone_army
+		NOR = {
+			has_country_flag = clone_army_fertility_unlocked
+			has_ethic = ethic_fanatic_egalitarian
+		}
+	}
+
+	weight_modifier = {
+		factor = 1	# genetech needs to be a bit more common
+		modifier = {
+			factor = 5
+			has_country_flag = clone_army_full_potential
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_xenophobe
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_xenophobe
+		}
+		modifier = {
+			factor = 0.1
+			has_ethic = ethic_egalitarian
+		}
+		inline_script = {
+			script = technologies/rare_technologies_weight_modifiers
+			TECHNOLOGY = better_clone_army_tech_clone_room
+		}
+	}
+
+	ai_weight = {
+		factor = @pop_growth_tech_ai_factor
+	}
+}
+
+#Gene Banks
+better_clone_army_tech_clone_hall = {
+	cost = @tier2cost3
+	area = society
+	tier = 2
+	category = { biology }
+	is_rare = yes
+	prerequisites = { "better_clone_army_tech_clone_room"}
+	weight = @tier2weight3
+
+	potential = {
+		has_origin = origin_clone_army
+		has_technology = better_clone_army_tech_clone_room
+	}
+
+	weight_modifier = {
+		factor = 0.5
+		inline_script = {
+			script = technologies/rare_technologies_weight_modifiers
+			TECHNOLOGY = better_clone_army_tech_clone_hall
+		}
+	}
+}
