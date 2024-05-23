@@ -51,7 +51,6 @@ better_clone_army_building_clone_army_room = {
 		}
 	}
 	planet_modifier = {
-#		planet_entertainer_consumer_goods_upkeep_add = 0.1
 	}
 
 	upgrades = {
@@ -82,9 +81,6 @@ better_clone_army_building_clone_army_hall = {
 		exists = owner
 		owner = {
 			has_origin = origin_clone_army
-			NOT = {
-				has_country_flag = clone_army_fertility_unlocked
-			}
 			has_technology = better_clone_army_tech_clone_hall
 		}
 		if = {

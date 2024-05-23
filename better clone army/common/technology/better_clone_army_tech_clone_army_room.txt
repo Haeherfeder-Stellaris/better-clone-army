@@ -57,6 +57,7 @@ better_clone_army_tech_clone_hall = {
 	potential = {
 		has_origin = origin_clone_army
 		has_technology = better_clone_army_tech_clone_room
+		has_country_flag = clone_army_full_potential
 	}
 
 	weight_modifier = {
